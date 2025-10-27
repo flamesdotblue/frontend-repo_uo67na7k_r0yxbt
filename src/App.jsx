@@ -1,28 +1,37 @@
-import { useState } from 'react'
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Sections from './components/Sections';
+import ContactForm from './components/ContactForm';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <footer className="border-t border-white/60 bg-white/70 backdrop-blur">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600">
+        <div>
+          © {new Date().getFullYear()} Lekha AI • All rights reserved
+        </div>
+        <div className="flex items-center gap-3">
+          <a href="#docs" className="hover:text-slate-900">Docs</a>
+          <a href="#privacy" className="hover:text-slate-900">Privacy</a>
+          <a href="#terms" className="hover:text-slate-900">Terms</a>
         </div>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(168,85,247,0.08),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.08),transparent_40%)]" />
+      <div className="relative">
+        <Navbar />
+        <Hero />
+        <Sections />
+        <ContactForm />
+        <Footer />
+      </div>
+    </div>
+  );
+}
